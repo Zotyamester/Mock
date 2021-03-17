@@ -11,7 +11,7 @@ Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is 
 * ✅ Projektstruktúra létrehozása
 * ✅ Keretrendszerek hozzáadása, az oldal futtathatóvá tétele
 * ✅ Adatbázis inicializálása
-* ⬜️ Modellek létrehozása
+* ✅ Modellek létrehozása
 * ⬜️ Űrlapok létrehozása
 * ⬜️ Elérési utak kidolgozása
 * ⬜️ Oldalak stilizálása
