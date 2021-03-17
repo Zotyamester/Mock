@@ -9,7 +9,7 @@ Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is 
 
 ## To Do
 * ✅ Projektstruktúra létrehozása
-* ⬜️ Keretrendszerek hozzáadása, az oldal futtathatóvá tétele
+* ✅ Keretrendszerek hozzáadása, az oldal futtathatóvá tétele
 * ⬜️ Adatbázis inicializálása
 * ⬜️ Modellek létrehozása
 * ⬜️ Űrlapok létrehozása
