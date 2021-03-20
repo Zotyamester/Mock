@@ -8,27 +8,20 @@
     {% endif %}
 {% endblock %}
 
-{% block navbar %}
-    <nav class="navbar navbar-default">
-        <div class="navbar-header">
-            <!-- TODO -->
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <!-- TODO -->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!-- TODO -->
-            </ul>
-        </div>
-    </nav>
-{% endblock %}
-
 {% block content %}
     <div class="container">
-        <!-- TODO -->
-    </div>
+        <div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                        <div class="alert alert-info" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
 
-    {% block app_content %}
-    {% endblock %}
+        {% block app_content %}
+        {% endblock %}
+    </div>
 {% endblock %}

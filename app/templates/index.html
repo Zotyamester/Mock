@@ -1,5 +1,63 @@
 {% extends 'base.html' %}
+{% from '_formhelpers.html' import render_errors %}
 
 {% block app_content %}
-    <h1>Helló, Világ!</h1>
+    <form method="POST" action="" class="bg-info">
+        {{ form.hidden_tag() }}
+
+        <div class="form-row">
+            <div class="form-group col">
+                <h1 class="text-primary text-center bg-primary border border-primary">Nemzeti Konzultáció</h1>
+            </div>
+            
+            <div class="form-group col-md-12">
+                <h2 class="text-info">Adatok</h2>
+            </div>
+
+            <div class="form-group col-md-5">{{ form.lastname.label }} {{ form.lastname(class='form-control', placeholder='Gipsz') }} {{ render_errors(form.lastname.errors) }}</div>
+            <div class="form-group col-md-5">{{ form.firstname.label }} {{ form.firstname(class='form-control', placeholder='Jakab') }} {{ render_errors(form.firstname.errors) }}</div>
+            <div class="form-group col-md-2">{{ form.age.label }} {{ form.age(class='form-control', placeholder='32') }} {{ render_errors(form.age.errors) }}</div>
+
+            <div class="form-group col-md-12">{{ form.email.label }} {{ form.email(class='form-control', placeholder='gipsz.jakab@bm.gov.hu') }} {{ render_errors(form.email.errors) }}</div>
+            
+            <div class="form-group col-md-2">{{ form.postcode.label }} {{ form.postcode(class='form-control', placeholder='1051') }} {{ render_errors(form.postcode.errors) }}</div>
+            <div class="form-group col-md-3">{{ form.city.label }} {{ form.city(class='form-control', placeholder='Budapest') }} {{ render_errors(form.city.errors) }}</div>
+            <div class="form-group col-md-7">{{ form.address.label }} {{ form.address(class='form-control', placeholder='Nádor utca 2.') }} {{ render_errors(form.address.errors) }}</div>
+            
+            <div class="form-group col-md-6">{{ form.phone.label }} {{ form.phone(class='form-control', placeholder='+3614411000') }} {{ render_errors(form.phone.errors) }}</div>
+            <div class="form-group col-md-6">{{ form.ssn.label }} {{ form.ssn(class='form-control', placeholder='123456789') }} {{ render_errors(form.ssn.errors) }}</div>
+            
+            <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" name="citizenship" id="citizenship" required>
+                <label class="form-check-label" for="citizenship">Magyar állampolgár vagyok.</label>
+            </div>
+            <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" name="privacy" id="privay" required>
+                <label class="form-check-label" for="privacy">Megismertem és elfogadom az adatkezelési tájékoztatóban foglaltakat.</label>
+            </div>
+            
+            <div class="form-group col-md-12">
+                <h2 class="text-info">Kérdések</h2>
+            </div>
+            
+            {% for question in questions %}
+            {% set qid = 'question-%d' % question.id %}
+            <div class="form-group col-sm-4">
+                <span class="text-primary">{{ question.label }}</span>
+                <div>
+                    <input type="radio" name="{{ qid }}" id="{{ '%s-yes' % qid }}" value="yes" {{ 'checked' if request.form[qid] == 'yes' else '' }}>
+                    <span class="text-secondary">Igen</span>
+                </div>
+                <div>
+                    <input type="radio" name="{{ qid }}" id="{{ '%s-no' % qid }}" value="no" {{ 'checked' if request.form[qid] == 'no' else '' }}>
+                    <span class="text-secondary">Nem</span>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="form-group col">
+                {{ form.submit(class='btn btn-primary btn-block', style='border-radius: 0;') }}
+            </div>
+        </div>
+    </form>
 {% endblock %}

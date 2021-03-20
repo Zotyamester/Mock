@@ -12,7 +12,9 @@ Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is 
 * ✅ Keretrendszerek hozzáadása, az oldal futtathatóvá tétele
 * ✅ Adatbázis inicializálása
 * ✅ Modellek létrehozása
-* ⬜️ Űrlapok létrehozása
-* ⬜️ Elérési utak kidolgozása
-* ⬜️ Oldalak stilizálása
+* ✅ Űrlapok létrehozása
+* ✅ Elérési utak kidolgozása
+* ✅ Oldalak stilizálása
+* ⬜️ Validációs szövegek
+* ⬜️ Admin oldal
 * ⬜️ Dokumentáció megírása
