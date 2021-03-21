@@ -4,7 +4,7 @@ from wtforms import IntegerField, StringField, SubmitField
 from wtforms.validators import (DataRequired, Email, InputRequired, Length,
                                 NumberRange, ValidationError)
 
-from app.models import City
+from app.models import City, Registration
 
 
 class ConsultationForm(FlaskForm):
@@ -24,6 +24,10 @@ class ConsultationForm(FlaskForm):
         if age.data < 18:
             raise ValidationError('Csak 18 éven felüliek vehetnek részt.')
 
+    def validate_email(self, email):
+        if Registration.query.filter_by(email=email.data).first() is not None:
+            raise ValidationError('Ezzel az e-mail címmel már regisztráltak.')
+
     def validate_city(self, city):
         if City.query.filter_by(name=city.data).first() is None:
             raise ValidationError('Hibás településnév')
@@ -35,7 +39,11 @@ class ConsultationForm(FlaskForm):
                 raise ValueError()
         except:
             raise ValidationError('Hibás telefonszám')
-    
+        if Registration.query.filter_by(phone=phone.data).first() is not None:
+            raise ValidationError('Ezzel a telefonszámmal már regisztráltak.')
+
     def validate_ssn(self, ssn):
         if not ssn.data.isnumeric():
             raise ValidationError('Hibás TAJ-szám')
+        if Registration.query.filter_by(ssn=ssn.data).first() is not None:
+            raise ValidationError('Ezzel a TAJ-számmal már regisztráltak.')
