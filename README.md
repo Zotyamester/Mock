@@ -15,6 +15,6 @@ Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is 
 * ✅ Űrlapok létrehozása
 * ✅ Elérési utak kidolgozása
 * ✅ Oldalak stilizálása
-* ⬜️ Validációs szövegek
+* ✅ Validációs szövegek
 * ⬜️ Admin oldal
 * ⬜️ Dokumentáció megírása
