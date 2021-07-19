@@ -1,5 +1,5 @@
 # Mock
-Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is tennénk a döntőben.
+Egy teszt projekt, ahol megpróbálunk mindent úgy csinálni, mint élesben is tennénk a (Kódolj Határok Nélkül!) döntőben.
 
 ## GitHub oldal
 [github.com/Zotyamester/Mock](github.com/Zotyamester/Mock)
